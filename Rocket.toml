@@ -1,0 +1,5 @@
+## defaults for _all_ profiles
+[default]
+port = 80
+address = "0.0.0.0"
+limits = { form = "64 kB", json = "1 MiB" }
