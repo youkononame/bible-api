@@ -25,7 +25,7 @@ pub fn get_chapter(book_name: String, chapter_number: usize) -> Result<Json<mode
             continue;
         }
 
-        if let Some(chapter) = book.clone().chapters.get(chapter_number - 1) {
+        if let Some(chapter) = book.clone().chapters.get(chapter_number) {
             let chapter: models::Chapter = chapter.clone();
             return Ok(Json(chapter));
         } else {
@@ -49,7 +49,7 @@ pub fn get_verse(book_name: String, chapter_number: usize, verse_number: usize) 
             break;
         };
         
-        if let Some(verse) = chapter.verses.get(verse_number - 1) {
+        if let Some(verse) = chapter.verses.get(verse_number) {
             let verse: models::Verse = verse.clone();
             return Ok(Json(verse));
         } else {
