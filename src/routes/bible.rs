@@ -21,7 +21,7 @@ pub fn get_book(book_name: String) -> Result<Json<models::Book>, status::NotFoun
 #[get("/book/<book_name>/chapter/<chapter_number>")]
 pub fn get_chapter(book_name: String, chapter_number: usize) -> Result<Json<models::Chapter>, status::NotFound<String>> {
     for book in &models::BIBLE.books {
-        if book.name == book_name {
+        if book.name != book_name {
             continue;
         }
 
@@ -39,7 +39,7 @@ pub fn get_chapter(book_name: String, chapter_number: usize) -> Result<Json<mode
 #[get("/book/<book_name>/chapter/<chapter_number>/verse/<verse_number>")]
 pub fn get_verse(book_name: String, chapter_number: usize, verse_number: usize) -> Result<Json<models::Verse>, status::NotFound<String>> {
     for book in &models::BIBLE.books {
-        if book.name == book_name {
+        if book.name != book_name {
             continue;
         }
 
